@@ -44,5 +44,5 @@ def prepare_batch(batch_info, data_reader, preprocessor, sample_weighter):
     else:
         # sample_weighter might not need some of these parameters, but it is to assure that we pass for needy ones, in case.
         weighter_info = {"batch_info": batch_info, "feature_batch": feature_batch, "label_batch": label_batch}
-        weight_batch = sample_weighter(weighter_info)
+        weight_batch = sample_weighter.process(weighter_info)
         return feature_batch, label_batch, weight_batch
